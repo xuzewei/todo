@@ -11,6 +11,7 @@ class UserController {
   }
 
   async register({ request }) {
+    console.log('hello world')
     const { email, password } = request.all();
     const user = await User.create({
       email,
