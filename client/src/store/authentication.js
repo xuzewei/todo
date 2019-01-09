@@ -6,6 +6,8 @@ export default {
   state: {
     registerEmail: 'xzw',
     registerPassword: 'xzw123',
+    registerError: null,
+    token: null,
   },
   actions: {
     register({ commit, state }) {
@@ -19,9 +21,17 @@ export default {
         });
     },
   },
+  getters: {
+    isLoggedIn(state) {
+      return !!state.token;
+    },
+  },
   mutations: {
     setToken(state, token) {
       state.token = token;
+    },
+    setRegisterError(state, error) {
+      state.registerError = error;
     },
     setRegisterEmail(state, email) {
       state.registerEmail = email;
