@@ -4,16 +4,23 @@
       <v-flex xs4>
         <Projects></Projects>
       </v-flex>
-
-      <v-flex xs8 class="pl-4" v-if="currentProject">
-        <Tasks></Tasks>
+      <v-flex xs8 class="pl-4">
+        <Panel title="Tasks">
+          <h1>TESTING</h1>
+        </Panel>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-export default {};
+import Projects from '@/components/Projects.vue';
+
+export default {
+  components: {
+    Projects,
+  },
+};
 </script>
 
 <style scoped>
