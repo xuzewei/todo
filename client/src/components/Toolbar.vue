@@ -11,10 +11,10 @@
       <v-btn flat to="/register" v-if="!isLoggedIn">
         <v-icon class="mr-2">account_box</v-icon>register
       </v-btn>
-      <v-btn flat v-if="!isLoggedIn">
+      <v-btn flat v-if="!isLoggedIn" @click="setToken(null)">
         <v-icon class="mr-2">fingerprint</v-icon>login
       </v-btn>
-      <v-btn flat v-if="isLoggedIn">
+      <v-btn flat v-if="isLoggedIn" @click="logout(null)">
         <v-icon class="mr-2">exit_to_app</v-icon>logout
       </v-btn>
     </v-toolbar-items>
@@ -22,11 +22,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   computed: {
     ...mapGetters('authentication', ['isLoggedIn']),
+  },
+  methods: {
+    ...mapActions('authentication', [
+      'logout',
+    ]),
   },
 };
 </script>
