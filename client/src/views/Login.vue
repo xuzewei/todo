@@ -2,24 +2,24 @@
   <v-container>
     <v-layout row wrap>
       <v-flex xs6 offset-xs3>
-        <h1>Register</h1>
+        <h1>Login</h1>
         <v-text-field
           lable="Email"
           placeholder="Email"
-          :value="registerEmail"
-          @input="setRegisterEmail"
-        ></v-text-field>
+          :value="loginEmail"
+          @input="setLoginEmail">
+        </v-text-field>
         <v-text-field
           lable="Password"
           placeholder="Password"
           type="password"
           autocomplete="new-password"
-          :value="registerPassword"
-          @input="setRegisterPassword"
+          :value="loginPassword"
+          @input="setLoginPassword"
         ></v-text-field>
-        <v-alert type="error" :value="registerError">{{registerError}}</v-alert>
-        <v-btn color="green" dark @click="register">
-          <v-icon>account_circle</v-icon>Register
+        <v-alert type="error" :value="loginError">{{loginError}}</v-alert>
+        <v-btn color="green" dark @click="login">
+          <v-icon>fingerprint</v-icon>Login
         </v-btn>
       </v-flex>
     </v-layout>
@@ -32,16 +32,19 @@ import { mapState, mapMutations, mapActions } from 'vuex';
 export default {
   computed: {
     ...mapState('authentication', [
-      'registerEmail',
-      'registerPassword',
-      'registerError']),
+      'loginEmail',
+      'loginPassword',
+      'loginError',
+    ]),
   },
   methods: {
     ...mapMutations('authentication', [
-      'setRegisterEmail',
-      'setRegisterPassword',
+      'setLoginEmail',
+      'setLoginPassword',
     ]),
-    ...mapActions('authentication', ['register']),
+    ...mapActions('authentication', [
+      'login',
+    ]),
   },
 };
 </script>
