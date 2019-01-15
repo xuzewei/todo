@@ -11,6 +11,8 @@ export default {
   },
   actions: {
     register({ commit, state }) {
+      commit('setRegisterError', null);
+
       return HTTP().post('/v0/auth/register', {
         email: state.registerEmail,
         password: state.registerPassword,
@@ -18,6 +20,9 @@ export default {
         .then(({ data }) => {
           commit('setToken', data.token);
           router.push('/');
+        })
+        .catch(() => {
+          commit('setRegisterError', 'An error has occured trying to create your account.');
         });
     },
   },
