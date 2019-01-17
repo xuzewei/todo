@@ -40,5 +40,8 @@ export default {
     setEditMode(state, project) {
       Vue.set(project, 'isEditMode', true);
     },
+    unsetEditMode(state, project) {
+      Vue.set(project, 'isEditMode', false);
+    },
   },
 };

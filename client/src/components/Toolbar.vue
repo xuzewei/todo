@@ -26,7 +26,9 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters('authentication', ['isLoggedIn']),
+    ...mapGetters('authentication', [
+      'isLoggedIn'
+    ]),
   },
   methods: {
     ...mapActions('authentication', [

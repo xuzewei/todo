@@ -18,8 +18,14 @@
         </v-flex>
         <v-flex xs3>
           <v-icon
+            v-if="!project.isEditMode"
             @click="setEditMode(project)">
             edit
+          </v-icon>
+          <v-icon
+            v-if="project.isEditMode"
+            @click="unsetEditMode(project)">
+            check
           </v-icon>
         </v-flex>
       </v-layout>

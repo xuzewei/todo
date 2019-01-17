@@ -1,3 +1,7 @@
+import 'vuetify/dist/vuetify.min.css';
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
+
+import { sync } from 'vuex-router-sync';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import App from './App.vue';
@@ -5,9 +9,9 @@ import router from './router';
 import store from './store';
 import Panel from './components/Panel.vue';
 
-import 'vuetify/dist/vuetify.min.css'; // Ensure you are using css-loader
-
 Vue.use(Vuetify);
+sync(store, router);
+
 Vue.config.productionTip = false;
 
 Vue.component('Panel', Panel);
