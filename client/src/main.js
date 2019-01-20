@@ -1,5 +1,4 @@
 import 'vuetify/dist/vuetify.min.css';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
 import { sync } from 'vuex-router-sync';
 import Vue from 'vue';
