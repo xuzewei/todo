@@ -1,6 +1,5 @@
 // import router from '../router';
 import Vue from 'vue';
-import HTTP from '../http';
 
 export default {
   namespaced: true,
@@ -36,6 +35,9 @@ export default {
     },
     setProjects(state, projects) {
       state.projects = projects;
+    },
+    setProjectsTitle(state, { project, title }) {
+      project.title = title;
     },
     setEditMode(state, project) {
       Vue.set(project, 'isEditMode', true);

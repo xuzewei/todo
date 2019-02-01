@@ -14,6 +14,10 @@
           <v-text-field
             v-if="project.isEditMode"
             :value="project.title"
+            @input="setProjectTitle({
+              project,
+              title: $event,
+            })"
           ></v-text-field>
         </v-flex>
         <v-flex xs3>
@@ -69,6 +73,8 @@ export default {
     ...mapMutations('projects', [
       'setNewProjectName',
       'setEditMode',
+      'unsetEditMode',
+      'setProjectTitle',
     ]),
     ...mapActions('projects', [
       'createProject',
